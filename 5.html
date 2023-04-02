@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>HTMLの練習</title>
+        <style>
+            table{
+                border-collapse: collapse;
+            }
+            th,td{
+                border: 1px solid gray;
+            }
+            em{
+                color: wheat;
+            }
+        </style>
+    </head>
+    <body>
+        <ol>
+            <li>国語</li>
+            <li>数学</li>
+            <li>英語</li>
+        </ol>
+        <ol reversed>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ol>
+        <ul>
+            <li>魂を込めて削ってきた鉛筆</li>
+            <li>まるでその場にある空間さえも消してしまいそうな消しゴム</li>
+            <li>机の上に用意はしてたんですけど忘れました受験票</li>
+        </ul>
+        <dl>
+            <dt>HTML</dt>
+            <dd>骨です</dd>
+            <dt>CSS</dt>
+            <dd>服です</dd>
+            <dt>JavaScript</dt>
+            <dd>キン肉マン</dd>
+        </dl>
+        <table>
+            <caption>一覧表</caption>
+            <tr>
+                <th>氏名</th>
+                <th>国語点数</th>
+                <th>数学点数</th>
+                <th>英語点数</th>
+            </tr>
+            <tr>
+                <td>Aさん</td>
+                <td>90</td>
+                <td>80</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <td>Bさん</td>
+                <td>70</td>
+                <td>90</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td>Cさん</td>
+                <td>80</td>
+                <td>70</td>
+                <td>90</td>
+            </tr>
+        </table>
+        <pre>
+うぃーっす皆さん、こんちはー
+中島っす。
+ほんでは、今日も楽しくHTMLを勉強していきましょうwww
+        </pre>
+        <details>
+            <summary>振込先はこちら</summary>
+            <p>口座へのひりこみ先は、こりらです。</p>
+            <ul>
+                <li>銀行名:おれさま銀行</li>
+                <li>支店名:すごい支店</li>
+                <li>銀行口座:4649!</li>
+                <li>口座奥義:とび膝蹴り</li>
+            </ul>    
+        </details>
+        <p>では皆さん、この俳句の「蝉」に注目しましょう。よくわかるように<mark>ハイライト</mark>表示しています。皆さんは...</p>
+        <blockquote>
+            <p>静けさや<br>岩に染み入る<br><em>蝉</em>の声</p>
+        </blockquote>
+        <p>わたくし中島の頭の使用状況：<progress value="95" max="100">95%</progress></p>
+        <p>わたくし中島に対する好感度が100を超えている人の割合<meter value="20" min="0" max="100" optimum="100" low="30" high="80">20%</meter></p>
+        <p><audio src="test02.wav" controls></audio></p>
+        <!--ブラウザによっては音声ファイルの種類に対応していないことがあるので、複数のファイルを指定することも出来る。-->
+        <!-- <audio controls>
+            <source src="/media/audio1.mp3" type="audio/mp3">
+            <source src="/media/audio1.wav" type="audio/wav">
+            <source src="/media/audio1.ogg" type="audio/ogg">
+        </audio> -->
+        <p><video src="video.mp4" controls autoplay muted></video></p>
+        <!--音声ファイル同様、複数のファイルを指定することも可能。-->
+        <p><video src="video.mp4" controls playsinline></video></p>
+        <canvas id="mycanvas1" width="210" height="200"></canvas>
+        <script>
+            const mycanvas1=document.getElementById("mycanvas1");
+            const myctx1=mycanvas1.getContext("2d");
+            let a = 255;
+            myctx1.fillStyle = `rgb(${a}, ${a}, ${a})`; //`(shift + @)で囲む
+            myctx1.fillRect(0, 0, mycanvas1.width, mycanvas1.height);//fillRect(長方形の左上の点,長方形の大きさ（横、縦）);
+            //一つ目の円グラフ
+            myctx1.beginPath();
+            myctx1.moveTo(100,100);
+            myctx1.arc(100,100,80, deg(0),deg(200,false));
+            myctx1.closePath();
+            myctx1.fillStyle="skyblue";
+            myctx1.fill();
+            myctx1.fillStyle="black"
+            myctx1.font="Italic 28px fantasy";
+            myctx1.fillText("kirai",110,105);
+            //二つ目の円グラフ
+            myctx1.beginPath();
+            myctx1.moveTo(100,100);
+            myctx1.arc(100,100,80, deg(200),deg(360),false);
+            myctx1.closePath();
+            myctx1.fillStyle="pink";
+            myctx1.fill();
+            myctx1.fillStyle="black";
+            myctx1.font="Italic 28px fantasy";
+            myctx1.fillText("sushi",26,105);
+
+            myctx1.fillStyle="black";
+            myctx1.font="9px sans-serif";
+            myctx1.fillText("わたくし中島に対する好きか嫌いかの好感度調査",10,200);
+            function deg(deg){
+
+                return (deg-90)/180*Math.PI;
+            }
+        </script>
+        <canvas id="mycanvas2" width="200" height="210"></canvas>
+        <script>
+            const mycanvas2=document.getElementById("mycanvas2");
+            const myctx2=mycanvas2.getContext("2d");
+            //一つ目
+            myctx2.fillStyle="skyblue";
+            myctx2.fillRect(0,200,200,y(100))
+
+            myctx2.fillStyle="black";
+            myctx2.font="Italic 28px fantasy"
+            myctx2.fillText("punch",13,155);
+
+            //二つ目
+            myctx2.fillStyle="pink";
+            myctx2.fillRect(100,200,100,y(150));
+
+            myctx2.fillStyle ="black";
+            myctx2.font="Italic 28px fantasy"
+            myctx2.fillText("kick",120,155);
+
+            myctx2.font="10px sans-serif";
+            myctx2.fillText("わたくし中島に会ったらやりたいこと",13,210);
+
+            function y(y){
+                return -y;
+            }
+        </script>
+        <canvas id="mycanvas3" width="200" height="210"></canvas>
+        <script>
+            const mycanvas3=document.getElementById("mycanvas3");
+            const myctx3=mycanvas3.getContext("2d");
+            myctx3.strokeStyle="skyblue";
+            //折れ線
+            myctx3.beginPath();
+            myctx3.moveTo(0,y3(50));
+            myctx3.lineTo(100,y3(50));
+            myctx3.lineTo(200,y3(150));
+            myctx3.stroke();
+
+            myctx3.fillStyle="black";
+            myctx3.font="10px sans-serif";
+            myctx3.fillText("わたくし中島の怒り度合い",30,205);
+
+            function y3(y){
+                return 200-y;
+            }
+        </script>
+        <p>
+            わたくし中島に対して感想をどうぞ<br>
+            <input type="text">
+        </p>
+        <p>
+            わたくし中島に対する満足度<br><input type="range" min="0" max="100" step="2" value="80">
+        </p>
+        <p>
+            あなたがわたくし中島に出会った今日の日付け<br><input type="date">
+        </p>
+        <p>
+            あなたがわたくし中島に出会った今の時間<br><input type="time">
+        </p>
+        <p>
+            あなたが思うわたくし中島の好きな色<br><input type="color">
+        </p>
+        <p>あなたの希望するわたくし中島の背番号<br><input type="number" min="0"max="50" step="2"></p>
+        <p>あなたが思うわたくし中島の電話番号<br><input type="tel"></p>
+        <p>わたくし中島のホームページのURL<br><input type="url"></p>
+        <p>わたくし中島の電磁メール<br><sub>ﾋﾞﾘﾋﾞﾘﾋﾞﾘﾋﾞﾘﾋﾞﾘﾋﾞﾘﾋﾞﾘﾋﾞﾘ</sub><br><input type="email"><sub>ﾊﾞﾁｯﾊﾞﾁｯ</sub><br><sup>ﾋﾞﾘﾋﾞﾘﾋﾞﾘﾋﾞﾘﾋﾞﾘﾋﾞﾘﾋﾞﾘﾋﾞﾘ</sup></p>
+        <p>わたくし中島はどこにいるでしょう<br><input type="text" name="corse" list="html5"></p>
+        <datalist id="html5">
+            <option value="マークアップ"></option>
+            <option value="CSS3"></option>
+            <option value="JavaScript"></option>
+        </datalist>
+        <p>
+            <label>
+                <input type="radio" name="radio">L
+            </label>
+            <label>
+                <input type="radio" name="radio">M
+            </label>
+            <label>
+                <input type="radio" name="radio">S
+            </label>
+        </p>
+        <p>わたくし中島の生年月を選んでください<br>
+            <select>
+                <option value="1">1月</option>
+                <option value="2">2月</option>
+                <option value="3">3月</option>
+                <option value="4">4月</option>
+                <option value="7">7月</option>
+            </select>
+        </p>
+        <p>
+            わたくし中島に悩みを打ち明けてみなさい<br><textarea></textarea>
+        </p>
+        <form method="get" action="example.php">
+            <p>これはわたくし中島が作ったフォームです</p>
+            <p>
+                <input type="text" name="name">
+            </p>
+            <p>
+                <input type="submit" value="送信">
+            </p>
+        </form>
+        <script>
+            document.write("皆様ごきげんよう。わたくしは中島というものです。見ていますよ。ふざけたことを書かないように。");
+        </script>
+        <p>
+            <div contenteditable="true">
+                わたくし中島です。貴様にこのテキストの編集を許可してあげます。
+            </div>
+        </p>
+        <p hidden>今は無関係の者田中。目覚めさせてはならない。</p>
+    </body>
+</html>
